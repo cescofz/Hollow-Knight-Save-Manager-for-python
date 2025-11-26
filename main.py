@@ -1,4 +1,6 @@
 '''
+Version:1.0.1
+Date:2025/11/6-14:27
 PyQt5开发的Hollow Knight存档编辑器
 加密和解密方法来自[@KayDeeTee](https://github.com/KayDeeTee)'s [Hollow Knight Save Manager](https://github.com/KayDeeTee/Hollow-Knight-SaveManager).
 '''
@@ -31,7 +33,7 @@ class HKS(QMainWindow,Ui_MainWindow):
     def __init__(self):
         super(HKS, self).__init__()
         self.setupUi(self)
-        self.setWindowTitle("Hollow Knight(空洞骑士)存档修改器           by Sky.柚子")
+        self.setWindowTitle("Hollow Knight(空洞骑士)存档修改器 by Sky.柚子")
         self.setWindowIcon(QIcon(resource_path("res/image/icon.ico")))
         self.show()
         self.main()
@@ -159,6 +161,7 @@ class HKS(QMainWindow,Ui_MainWindow):
         v = v = int(self.lineEdit_Health.text())
         self.textEdit_log.append(f"存档修改:已修改health={v}到userdata.json!")
         self.change_json_file("health",v)
+        self.change_json_file("maxHealthBase", v)
     def changeMaxHealth(self):
         v = v = int(self.lineEdit_MaxHelath.text())
         self.textEdit_log.append(f"存档修改:已修改maxHealth={v}到userdata.json!")
@@ -184,7 +187,7 @@ class HKS(QMainWindow,Ui_MainWindow):
         fileName, _ = QFileDialog.getSaveFileName(self, "另存为", "user1.dat", "存档文件 (*.dat);", options=options)
         if fileName:
             if not os.path.exists("user_data.json"):
-                self.textEdit_log.append("都没有userdata.json我咋给你另存为？")
+                self.textEdit_log.append("存档另存为:无userdata.json")
                 return
             try:
                 with open("user_data.json", "r", encoding="utf-8") as f:
@@ -220,7 +223,7 @@ class HKS(QMainWindow,Ui_MainWindow):
             else:
                 self.textEdit_log.append("存档编译:未替换存档")
         else:
-            self.textEdit_log.append("编译存档:没有生成userdata.json,你编译个几把?")
+            self.textEdit_log.append("编译存档:没有生成userdata.json")
     def main(self):
         self.btn_flash.hide()
         self.play_background_music()
