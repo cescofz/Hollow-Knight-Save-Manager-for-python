@@ -10,7 +10,7 @@ def resource_path(relative_path):
 root_path = os.path.abspath(".")
 
 a = Analysis(
-    ["main.py"], 
+    ["init.py"], 
     pathex=[root_path],
     binaries=[],
     datas=[
@@ -50,5 +50,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon="E:\\icon.ico",
+    icon=".\\res\image\icon.ico",
 )
