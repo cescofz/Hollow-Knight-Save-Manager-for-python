@@ -1,5 +1,5 @@
 # Hollow-Knight-Save-Manager-for-python
-# V1.0.1
+# V1.0.2
 # By Sky.柚子
 ## PyQt5编写的空洞骑士存档编辑器，可以将dat存档文件解码为json文件
 ### 加密和解密方法来自[@KayDeeTee](https://github.com/KayDeeTee)'s [Hollow Knight Save Manager](https://github.com/KayDeeTee/Hollow-Knight-SaveManager). 
